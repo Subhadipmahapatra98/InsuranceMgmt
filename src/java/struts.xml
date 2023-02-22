@@ -1,0 +1,57 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="Login" class="com.exavalu.models.User" method="doLogin">
+            <result name="SUCCESS">index_start_1.jsp</result>
+            <result name="FAILURE">login.jsp</result>
+        </action>
+        <action name="UnderWriter" class="com.exavalu.models.Underwriter" method="doLoginUnderWriter">
+            <result name="SUCCESS">verification.jsp</result>
+            <result name="FAILURE">underwriterLogin.jsp</result>
+        </action>   
+        <action name="admin" class="com.exavalu.models.Underwriter" method="doLoginAdmin">
+            <result name="SUCCESS">verificationInsurance.jsp</result>
+            <result name="FAILURE">adminlogin.jsp</result>
+        </action>  
+       <action name="SaveFNOL" class="com.exavalu.models.User" method="SubmitFNOL">
+            <result name="SUCCESS">application_submission.jsp</result>
+            <result name="FAILURE">claimInsurance.jsp</result>
+        </action> 
+     
+        <action name="track" class="com.exavalu.models.User" method="trackApplication">
+            <result name="SUCCESS">trackApplication.jsp</result>
+            <result name="FAILURE">login.jsp</result>
+        </action>
+       <action name="policyApi" class="com.exavalu.models.APIUser" method="getPolicyDataFromAPI">
+            <result name="SUCCESS">policyApi.jsp</result>
+            <result name="FAILURE">verification.jsp</result>
+        </action>
+        <action name="driverApi" class="com.exavalu.models.APIUser" method="getDriversDataFromAPI">
+            <result name="SUCCESS">driverApi.jsp</result>
+            <result name="FAILURE">verification.jsp</result>
+        </action>
+        <action name="updateStatus" class="com.exavalu.models.Underwriter" method="updateStatus">
+            <result name="SUCCESS">home.jsp</result>
+            <result name="FAILURE">verification.jsp</result>
+        </action>
+        <action name="adminverify" class="com.exavalu.models.Underwriter" method="updateAdminStatus">
+            <result name="SUCCESS">home.jsp</result>
+            <result name="FAILURE">verificationInsurance.jsp</result>
+        </action>
+         <action name="Logout" class="com.exavalu.models.User" method="doLogout">
+            <result name="SUCCESS">index_start.jsp</result>
+            <result name="FAILURE">index_start.jsp</result>
+        </action> 
+        
+        <action name="Verify" class="com.exavalu.models.User"  method="verifyUser">
+            <result name="SUCCESS">underwriterVerification.jsp</result>
+        </action>
+     
+
+        
+</package>
+</struts>
